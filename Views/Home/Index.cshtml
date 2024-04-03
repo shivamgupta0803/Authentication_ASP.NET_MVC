@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    if (!User.Identity.IsAuthenticated)
+    {
+        // Show registration form
+        @Html.ActionLink("Register", "Register", "Account")
+    }
+    else
+    {
+        // Show login link
+        @Html.ActionLink("Login", "Login", "Account")
+    }
+}
