@@ -4,20 +4,21 @@
 <h1>Register</h1>
 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+
 <form asp-action="Register" method="post">
     <div>
         <label asp-for="UserName"></label>
-        <input asp-for="UserName" />
+        <input asp-for="UserName" required />
         <span asp-validation-for="UserName"></span>
     </div>
     <div>
         <label asp-for="Email"></label>
-        <input asp-for="Email" />
+        <input asp-for="Email" required />
         <span asp-validation-for="Email"></span>
     </div>
     <div>
         <label asp-for="Password"></label>
-        <input asp-for="Password" />
+        <input asp-for="Password" required />
         <span asp-validation-for="Password"></span>
     </div>
     <button type="submit">Register</button>

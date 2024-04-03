@@ -59,3 +59,4 @@
 /home/algo66/regANDlog/Demo/obj/Debug/net8.0/Demo.pdb
 /home/algo66/regANDlog/Demo/obj/Debug/net8.0/Demo.genruntimeconfig.cache
 /home/algo66/regANDlog/Demo/obj/Debug/net8.0/ref/Demo.dll
+/home/algo66/regANDlog/Demo/obj/Debug/net8.0/Demo.sourcelink.json

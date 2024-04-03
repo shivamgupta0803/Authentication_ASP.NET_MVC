@@ -1,18 +1,36 @@
-<!-- Views/Account/Login.cshtml -->
 @model Demo.Models.UserModel
 
+@{
+    var registrationMessage = TempData["RegistrationMessage"] as string;
+    var loginMessage = TempData["LoginMessage"] as string;
+}
+
+@if (!string.IsNullOrEmpty(loginMessage))
+{
+    <div class="alert alert-danger" role="alert">
+    @loginMessage
+</div>
+}
+else if (!string.IsNullOrEmpty(registrationMessage))
+{
+    <div class="alert alert-danger" role="alert">
+    @registrationMessage
+</div>
+}
 <h1>Login</h1>
 
 <form asp-action="Login" method="post">
     <div>
         <label asp-for="Email"></label>
-        <input asp-for="Email" />
+        <input asp-for="Email" required />
         <span asp-validation-for="Email"></span>
     </div>
     <div>
         <label asp-for="Password"></label>
-        <input asp-for="Password" />
+        <input asp-for="Password" required />
         <span asp-validation-for="Password"></span>
     </div>
     <button type="submit">Login</button>
+    <p>If you don't have an account, <a href="/Account/Register">register here</a>.</p>
+
 </form>

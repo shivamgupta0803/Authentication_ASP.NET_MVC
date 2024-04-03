@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.Sqlite;
 using Demo.Models;
-using System;
-using System.Collections.Generic;
+
+
 
 namespace RegistrationAndLogin.Controllers
 {
@@ -30,12 +30,11 @@ namespace RegistrationAndLogin.Controllers
                     commandCheck.Parameters.AddWithValue("@Email", model.Email);
                     int count = Convert.ToInt32(commandCheck.ExecuteScalar());
 
+
                     if (count > 0)
                     {
-
-                        ModelState.AddModelError(string.Empty, "Email already exists. Please login or use a different email or password.");
-                        ModelState.Clear();
-                        return View(model);
+                        TempData["RegistrationMessage"] = "Email already exists. Please login or use a different email or password.";
+                        return RedirectToAction("Login"); // Redirect to Login action
                     }
 
                     // Email doesn't exist, proceed with registration
@@ -71,13 +70,12 @@ namespace RegistrationAndLogin.Controllers
 
                 if (count > 0)
                 {
-                    return RedirectToAction("Welcome");
+                    return Redirect("http://localhost:5093/");
                 }
                 else
                 {
-                    ModelState.Clear();
-                    ModelState.AddModelError(string.Empty, "Invalid email or password");
-                    return View(model);
+                    TempData["LoginMessage"] = "You are login with Wrong Email Or Password !... Please login with different email or password.";
+                    return View("Login", model);
                 }
             }
         }

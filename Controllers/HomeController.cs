@@ -12,7 +12,7 @@ namespace RegistrationAndLogin.Controllers
             }
             else
             {
-                return RedirectToAction("Register", "Account");
+                return RedirectToAction("Login", "Account");
             }
         }
     }
